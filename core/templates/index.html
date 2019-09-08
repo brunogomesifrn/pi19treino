@@ -22,11 +22,11 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Inicio</a></li>
-      <li><a href="treinos/">Treinos</a></li>
+      <li><a href="treinos/">Treinos Individuais</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="{% url 'registro' %}"><span class="glyphicon glyphicon-user"></span> Cadastro</a></li>
+      <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>

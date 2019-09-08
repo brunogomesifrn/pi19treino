@@ -21,12 +21,12 @@
       <a class="navbar-brand" href="">Treine Hoje</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="">Inicio</a></li>
       <li class="active"><a href="">Treinos Individuais</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href=""><span class="glyphicon glyphicon-ok-circle
+"></span> Olá {{ user.username }}</a></li>
     </ul>
   </div>
 </nav>
