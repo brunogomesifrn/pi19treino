@@ -1,9 +1,89 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
-	<title>Treinos</title>
+	<title>Treine Hoje</title>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/estilo.css">
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="">Treine Hoje</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="">Inicio</a></li>
+      <li class="active"><a href="">Treinos Individuais</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container f">
+	<h2 class="text-center mb-0">Abdômen</h2>
+  <br>
+  <br>
+	<div class="row">
+		<div class="col-lg-6 ml-auto">
+          <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
+        </div>
+        <div class="col-lg-6 mr-auto">
+          <p class="lead"><iframe width="560" height="315" src="https://www.youtube.com/embed/tteWjzdHp6I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+	</div>
+</div>
+
+<div class="container f">
+      <h2 class="text-center mb-0">Peito, Ombro E Tríceps</h2>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="col-lg-6 ml-auto">
+          <p class="lead">Esse o vídeo mostra 4 exercícios para você fazer onde quiser e puder, além de ser em um tempo curto, é muito eficaz. 
+          Começa com um treino de peito, durante 45 segundo e descanso de 15, assim repetindo essa regra para os demais treinos, seguido pelo exercício de ombro, tríceps e por último ombro novamente.</p>
+        </div>
+        <div class="col-lg-6 mr-auto">
+          <p class="lead"><iframe width="560" height="315" src="https://www.youtube.com/embed/kuFgiVL1u0c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container f">
+      <h2 class="text-center mb-0">Glúteo e Coxa</h2>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="col-lg-6 ml-auto">
+          <p class="lead">Este exercício mostra o passo a passo para exercitar o músculos da coxa e glúteo.
+            Os exercícios são de fácil execução e em um pequeno intervalo de tempo para intensificar os músculos. Serão 8 repetições, onde faz 20 segundos de exercícios e em seguida descansa 10 segundos</p>
+        </div>
+        <div class="col-lg-6 mr-auto">
+          <p class="lead"><iframe width="560" height="315" src="https://www.youtube.com/embed/5UcV0IDFuNg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        </div>
+      </div>
+    </div>
+
+<footer class="footer text-center">
+	<div class="container">
+		<div class="row"></div>
+		<div class="mb-0">
+			<img src="{% static 'img/if.png'%}" width="165px" height="80px">
+        </div>
+	</div>
+</footer>
 
 </body>
 </html>
