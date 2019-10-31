@@ -35,8 +35,7 @@
 			<div class="wrap-login100 p-b-160 p-t-50">
 				<form class="login100-form validate-form" method="post" action="{% url 'login' %}">
 					{% csrf_token %}
-					<tr><th><label for="id_username">Username:</label></th><td><input id="id_username" type="text" name="username" maxlength="30" class="form-control" /></td></tr>
-					{{form.password}}
+					{{form}}
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
