@@ -12,11 +12,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+<style type="text/css">
+    .t{
+    padding: 15px;
+    font-size: 17px;
+  }
+    .r{
+    background-color: #ff8c3a;
+    color: #fffdfc; 
+    padding-bottom: 5px;
+  }
+</style>
+
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid t">
     <div class="navbar-header">
       <a class="navbar-brand" href="">Treine Hoje</a>
     </div>
@@ -29,9 +40,9 @@
 "></span> Olá {{ user.username }}</a></li>
     </ul>
   </div>
-</nav>
 
 
+<div class="r">
 <div class="container f">
 	<h2 class="text-center mb-0">Abdômen</h2>
   <br>
@@ -40,12 +51,12 @@
 		<div class="col-lg-6 ml-auto">
           <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
         </div>
-        <div class="col-lg-6 mr-auto">
+        <div class="col-lg-6 ml-auto">
           <p class="lead"><iframe width="560" height="315" src="https://www.youtube.com/embed/tteWjzdHp6I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
         </div>
 	</div>
 </div>
-
+</div>
 <div class="container f">
       <h2 class="text-center mb-0">Peito, Ombro E Tríceps</h2>
       <br/>
@@ -55,12 +66,12 @@
           <p class="lead">Esse o vídeo mostra 4 exercícios para você fazer onde quiser e puder, além de ser em um tempo curto, é muito eficaz. 
           Começa com um treino de peito, durante 45 segundo e descanso de 15, assim repetindo essa regra para os demais treinos, seguido pelo exercício de ombro, tríceps e por último ombro novamente.</p>
         </div>
-        <div class="col-lg-6 mr-auto">
+        <div class="col-lg-6 ml-auto">
           <p class="lead"><iframe width="560" height="315" src="https://www.youtube.com/embed/kuFgiVL1u0c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
         </div>
       </div>
     </div>
-
+<div class="r">
     <div class="container f">
       <h2 class="text-center mb-0">Glúteo e Coxa</h2>
       <br/>
@@ -70,17 +81,17 @@
           <p class="lead">Este exercício mostra o passo a passo para exercitar o músculos da coxa e glúteo.
             Os exercícios são de fácil execução e em um pequeno intervalo de tempo para intensificar os músculos. Serão 8 repetições, onde faz 20 segundos de exercícios e em seguida descansa 10 segundos</p>
         </div>
-        <div class="col-lg-6 mr-auto">
+        <div class="col-lg-6 ml-auto">
           <p class="lead"><iframe width="560" height="315" src="https://www.youtube.com/embed/5UcV0IDFuNg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
         </div>
       </div>
     </div>
-
-<footer class="footer text-center">
+</div>
+<footer class="text-center">
 	<div class="container">
 		<div class="row"></div>
 		<div class="mb-0">
-			<img src="{% static 'img/if.png'%}" width="165px" height="80px">
+			<img src="{% static 'img/if.png'%}" width="165px" height="75px">
         </div>
 	</div>
 </footer>

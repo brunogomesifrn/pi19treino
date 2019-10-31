@@ -2,13 +2,11 @@
 	margin: -1em; 
 	margin-bottom: 2em; 
 }
-.f{
-	margin-bottom: 2em;
-}
-.footer{
-	background-color: rgb(0, 0, 0);
-	border-radius: 10px;
-}
+
 .r{
 	margin-top: auto;
+}
+
+.t{
+	padding-top: 10px;
 }
