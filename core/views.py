@@ -25,18 +25,20 @@ def registro(request):
 	}
 	return render(request, 'registration/register.html', contexto)
 
-def login(request):
-	username = request.POST['username']
-	password = request.POST['password']
+def do_login(request):
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
 
-	user = authenticate(username=username, password=password)
+		user = authenticate(username=username, password=password)
 
-	if user == None:
-		return HttpResponse("<h1 align='center'># Senha errada ou usuário</h1>")
+		if user == None:
+			return HttpResponse("<h1 align='center'># Senha errada ou usuário</h1>")
+		else:
+			if user.is_active:
+				login(request, user)
+				return redirect('index')
 	else:
-		login(user, request)
-		return redirect('index')
-
-
+		return render(request, 'registration/login.html')
 
 
