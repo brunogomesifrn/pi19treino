@@ -54,13 +54,25 @@
 	<div class="row">
 		<div class="input-cart col s12 m10 push-m1 z-depth-2 grey lighten-5">
 			<div class="col s12 m5 login">
+				{% if not user.is_authenticated %}
 				<h4 class="center">Cadastro</h4>
+				{% endif %}
+
+				{% if user.is_authenticated %}
+				<h4 class="center">Editar</h4>
+				{% endif %}
 				<br>
 				<form method="post" autocomplete="off" >
 					{% csrf_token %}
 					{{form.as_p}}
 					<div class="col s6">
+						{% if not user.is_authenticated %}
 						<button type="submit" name="login" class="btn waves-effect waves-light blue right">Log in</button>
+						{% endif %}
+
+						{% if user.is_authenticated %}
+						<button type="submit" name="login" class="btn waves-effect waves-light blue right">Salvar</button>
+						{% endif %}
 					</div>
 				</form>
 			</div>
