@@ -35,9 +35,9 @@
       <li class="active"><a href="">Treinos Individuais</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span> Sair</a></li>
-      <li><a href=""><span class="glyphicon glyphicon-ok-circle
-"></span> Olá {{ user.username }}</a></li>
+      <li><a href="{% url 'editar' user.id %}"><span class="glyphicon glyphicon-user"></span>Editar dados</a></li>
+      <li><a href="{% url 'logout' %}"> <span class="glyphicon glyphicon-ok-circle
+"></span>Sair</a></li>
     </ul>
   </div>
 
