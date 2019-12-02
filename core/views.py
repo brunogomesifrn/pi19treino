@@ -42,3 +42,14 @@ def do_login(request):
 		return render(request, 'registration/login.html')
 
 
+@login_required
+def editar(request, id):
+	user = User.objects.get(pk=id)
+	form = UserForm(request.POST or None, instance=user)
+	if form.is_valid():
+		form.save()
+		return redirect('login')
+	contexto = {
+		'form': form
+	}
+	return render(request, 'registration/register.html', contexto)
