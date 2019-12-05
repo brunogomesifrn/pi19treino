@@ -1,104 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-  <title>Contact V10</title>
-  <meta charset="UTF-8">
+  <title>Treine Hoje</title>
+
+  <link rel="stylesheet" type="text/css" href="/static/css/estilo.css">
+
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="{% static 'assets2/images/icons/favicon.ico' %}"/>
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/vendor/bootstrap/css/bootstrap.min.css' %}">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/vendor/animate/animate.css' %}">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/vendor/css-hamburgers/hamburgers.min.css' %}">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/vendor/animsition/css/animsition.min.css' %}">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/vendor/select2/select2.min.css' %}">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/vendor/daterangepicker/daterangepicker.css' %}">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/css/util.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'assets2/css/main.css' %}">
-<!--===============================================================================================-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    .t{
+      padding: 15px;
+      font-size: 17px;
+    }
+    .r{
+      background-color: #ff8c3a;
+      color: #fffdfc; 
+      padding-bottom: 5px;
+    }
+  </style>
+
 </head>
 <body>
 
-
-  <div class="container-contact100">
-
-    <div class="wrap-contact100">
-      <form class="contact100-form validate-form">
-        <span class="contact100-form-title">
-          Send Us A Message
-        </span>
-
-        <div class="wrap-input100 validate-input" data-validate="Please enter your name">
-          <input class="input100" type="text" name="name" placeholder="Full Name">
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input" data-validate = "Please enter your email: e@a.x">
-          <input class="input100" type="text" name="email" placeholder="E-mail">
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input" data-validate = "Please enter your phone">
-          <input class="input100" type="text" name="phone" placeholder="Phone">
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input" data-validate = "Please enter your message">
-          <textarea class="input100" name="message" placeholder="Your Message"></textarea>
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="container-contact100-form-btn">
-          <button class="contact100-form-btn">
-            <span>
-              <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
-              Send
-            </span>
-          </button>
-        </div>
-      </form>
+  <div class="container-fluid t">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'index' %}">Treine Hoje</a>
     </div>
-  </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'index' %}">Inicio</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'treinos' %}">Treinos Individuais</a></li>
+    </ul>
+    {% if user.is_authenticated %}
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'meustreinos' %}">Meus Treinos</a></li>
+    </ul>
+    {% endif %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'editar' user.id %}"><span class="glyphicon glyphicon-user"></span>Editar dados</a></li>
+      <li><a href="{% url 'logout' %}"> <span class="glyphicon glyphicon-ok-circle
+        "></span>Sair</a></li>
+      </ul>
+    </div>
 
 
+    <div class="r">
+      <div class="container f">
+        <div class="row" style="margin-bottom: 100px">
+          <h2 class="text-center mb-0">Seus treinos</h2>
+          
+          {% for treino in treinos %}
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 btn-danger" style="margin: 70px">
+            <div class="card-new">
+              <h2 class="text-center mb-0">Nome do seu treino: <p>{{treino.nome}}</p></h2>
+              <h3 class="mb-0 btn-warning">Dias: <span class="text-center ">{{treino.dia_semana}}</span></h3>    
+              <div class="content-card">
+                <div class="title">
+                  <b style="font-size: 18px"> Regiões para serem trabalhadas:</b>
+                  {% for regiaos in treino.regiao.all %}
+                    <span style="font-weight: bold">{{regiaos}}; </span>
+                  {% endfor %}
+                </div>
+                <div class="desc-div">
+                  <p class="desc-evento">INTERVALO: {{treino.intervalo_treinos}} </p>
+                  <p class="desc-evento">TEMPO ENTRE REPETIÇÕES: {{treino.tempo_repaticao}}</p> 
+                </div>
 
-  <div id="dropDownSelect1"></div>
+              </div>
+            </div>
+          </div>
+          
 
-<!--===============================================================================================-->
-  <script src="{% static 'assets2/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-<!--===============================================================================================-->
-  <script src="{% static 'assets2/vendor/animsition/js/animsition.min.js' %}"></script>
-<!--===============================================================================================-->
-  <script src="{% static 'assets2/vendor/bootstrap/js/popper.js' %}"></script>
-  <script src="{% static 'assets2/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-<!--===============================================================================================-->
-  <script src="{% static 'assets2/vendor/select2/select2.min.js' %}"></script>
-<!--===============================================================================================-->
-  <script src="{% static 'assets2/vendor/daterangepicker/moment.min.js' %}"></script>
-  <script src="{% static 'assets2/vendor/daterangepicker/daterangepicker.js' %}"></script>
-<!--===============================================================================================-->
-  <script src="{% static 'assets2/vendor/countdowntime/countdowntime.js' %}"></script>
-<!--===============================================================================================-->
-  <script src="{% static 'assets2/js/main.js' %}"></script>
+          {% endfor %}
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        </div>
+        <h4 align="center"><a href="{% url 'cadastrartreinos' %}">Cadastre novos treinos</a></h4>
+      </div>
+    </div>
 
-  gtag('config', 'UA-23581568-13');
-</script>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row"></div>
+        <div class="mb-0">
+          <img src="{% static 'img/if.png'%}" width="165px" height="75px">
+        </div>
+      </div>
+    </footer>
 
-</body>
-</html>
-
+  </body>
+  </html>

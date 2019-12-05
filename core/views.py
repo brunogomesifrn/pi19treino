@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from .form import UserForm
+from .form import UserForm, TreinoForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from .models import Regiao_corporal, Tempo_repeticao, Intervalo_treinos, Treino
 
 # Create your views here.
 
@@ -53,3 +54,33 @@ def editar(request, id):
 		'form': form
 	}
 	return render(request, 'registration/register.html', contexto)
+
+@login_required
+def meustreinos(request):
+	data = {}
+	treinos = Treino.objects.filter(user=request.user)
+	data['treinos'] = treinos
+
+	return render(request, 'meustreinos.html', data)
+
+
+
+@login_required
+def cadastrartreinos(request):
+	data = {}
+	if request.method == 'POST':
+		form = TreinoForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('index')
+		else:
+			return HttpResponse('Erro')
+	else:
+		form = TreinoForm(initial={'user':request.user})
+
+	data['form'] = form
+	return render(request, 'cadastrar-treinos.html', data)
+
+
+
+

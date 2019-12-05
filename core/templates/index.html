@@ -38,16 +38,29 @@
  -->
   <div class="container-fluid t">
     <div class="navbar-header ">
-      <a class="navbar-brand" href="#">Treine Hoje</a>
+      <a class="navbar-brand" href="{% url 'index' %}">Treine Hoje</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Inicio</a></li>
+      <li class="active"><a href="{% url 'index' %}">Inicio</a></li>
       <li><a href="treinos/">Treinos Individuais</a></li>
     </ul>
+    {% if user.is_authenticated %}
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'meustreinos' %}">Meus Treinos</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'editar' user.id %}"><span class="glyphicon glyphicon-user"></span>Editar dados</a></li>
+      <li><a href="{% url 'logout' %}"> <span class="glyphicon glyphicon-ok-circle"></span>Sair</a></li>
+    </ul>
+    {% else %}
     <ul class="nav navbar-nav navbar-right">
       <li><a href="{% url 'registro' %}"><span class="glyphicon glyphicon-user"></span> Cadastro</a></li>
       <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
+    {% endif %}
+
+    
+  
   </div>
 
 <div class="q">
